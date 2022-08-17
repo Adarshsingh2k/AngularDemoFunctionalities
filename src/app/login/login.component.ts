@@ -9,48 +9,48 @@ import { AuthLogicService } from '../services/auth-logic.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router:Router, private authService:AuthLogicService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthLogicService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(logIn:any){
+  onSubmit(logIn: any) {
     console.log(logIn)
     console.log(logIn.value.email);
-    sessionStorage.setItem('email',logIn.value.email)
-    sessionStorage.setItem('password',logIn.value.pass)
-    
+    sessionStorage.setItem('email', logIn.value.email)
+    sessionStorage.setItem('password', logIn.value.pass)
+
     // this.goToDashboard
-    this.router.navigate(['dashboard'], {relativeTo:this.route})
+    this.router.navigate(['dashboard'], { relativeTo: this.route })
 
-    this.authService.login(logIn.value.email,logIn.value.pass);
+    this.authService.login(logIn.value.email, logIn.value.pass);
   }
 
-  
-  onChange(proper:any){
-    console.log(proper)
-    
-    console.log(proper.control)
-    
-  //  proper.control.pristine=true
 
-   proper.control.touched=false
-   
+  onChange(proper: any) {
+    console.log(proper)
+
+    console.log(proper.control)
+
+    //  proper.control.pristine=true
+
+    proper.control.touched = false
+
 
   }
 
-  setTouch:boolean=true
 
-  onChange2(proper:any){
+
+  onChange2(proper: any) {
     console.log(proper)
-    
+
     console.log(proper.control)
-    
-   proper.control.pristine=true
 
-   proper.control.touched=false
+    proper.control.pristine = true
 
-   
+    proper.control.touched = false
+
+
 
   }
 }

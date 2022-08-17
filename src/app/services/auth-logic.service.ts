@@ -23,9 +23,7 @@ export class AuthLogicService {
 
     }
   }
-  // logout(){
-  //   this.loggedIn=false
-  // }
+ 
 
   isAuthenticated(){
     return this.loggedIn

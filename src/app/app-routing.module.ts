@@ -6,35 +6,30 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
- 
-  {
-    path:'', component:LoginComponent,
-    
-   
-  },
-  {
-    path:'login', component:LoginComponent,
-    
-   
-  },
-  {
-          path: 'dashboard', 
-          component: DashboardComponent, 
-          canActivate:[AuthService]
-  },
-    // {
-    //   path:'employeeData',
-    //   component: EmployeeDataComponent,
-    //   canActivate:[AuthService]
 
-    // },
-    {
-      path:'lazy',
-      loadChildren:()=> import('./lazy-load/lazy-load.module').then(x=>x.LazyLoadModule),
-      canActivate:[AuthService]
+  {
+    path: '', component: LoginComponent,
 
-    }
-      
+
+  },
+  {
+    path: 'login', component: LoginComponent,
+
+
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthService]
+  },
+  
+  {
+    path: 'lazy',
+    loadChildren: () => import('./lazy-load/lazy-load.module').then(x => x.LazyLoadModule),
+    canActivate: [AuthService]
+
+  }
+
 ];
 
 @NgModule({

@@ -2,60 +2,54 @@
 <div class="container">
 
     <table class="table">
-        <thead >
+        <thead>
             <tr>
-                <th scope="col"  *ngFor="let i of key">{{i}}</th>
-                
-              </tr>
-          </thead>
-    
-          <tbody>
-            <tr *ngFor='let item of outData'>
-              <th scope="row" *ngFor="let i of key">{{item[i]}}</th>
-              
+                <th scope="col" *ngFor="let i of key">{{i}}</th>
+
             </tr>
-          </tbody>
-    
-    
+        </thead>
+
+        <tbody>
+            <tr *ngFor='let item of outData'>
+                <th scope="row" *ngFor="let i of key">{{item[i]}}</th>
+
+            </tr>
+        </tbody>
+
+
     </table>
-    </div>
-    
-    <!-- <div *ngFor="let i of outData" >
-        <div *ngFor="let j of i | keyvalue">
-           {{j.key}}:{{j.value}} 
-            <table class="table">
-                <thead>
-                   
-                        {{j.key}}
-                    
-                </thead>
-            </table>
-    
-        </div>
-    </div> -->
-    
-    <!-- Reactive form -->
-    <div class="container w-50 text-center contForm">
-        <form action="" [formGroup]="empForm" (ngSubmit)="onSubmit()" id="empFormm">
-            <input type="text" class="form-control " placeholder="Please enter Employe Name" formControlName='employee_name' id='employee_name' >
-            <p class="text-danger" *ngIf='employee_name.invalid && employee_name.touched' id="eNameCheck">This field is required </p>
-    
-            <br>
-            <br>
-            <input type="text" class="form-control " placeholder="Please enter Employe Salary" formControlName='employee_salary'>
-            <small class="text-danger" *ngIf='employee_salary.invalid && employee_salary.touched'>This field is required and Do not enter Alphabets or start number with 0 </small> <br>
-            <!-- <small class="text-danger" *ngIf='!employee_salary.errors.pattern'>Do not enter Alphabets or start with 0 </small> -->
-            
-            <br>
-            <br>
-            <input type="text" class="form-control " placeholder="Please enter Employe Age" formControlName='employee_age' (focus)="onChange3(this)">
-            <small class="text-danger"  *ngIf='employee_age.invalid && employee_age.touched'>Employee Age should betwee 21-60 </small>
-            <br>
-            <br>
-            <!-- <button routerLink='/employeeData' class="btn btn-danger btn-lg" [disabled]='!empForm.valid || empForm.untouched'>Add Details</button> -->
-    
-            <button routerLink='/lazy/employeeDataLazy' class="btn btn-danger btn-lg" [disabled]='!empForm.valid || empForm.untouched'>Add Details</button>
-            
-    
-        </form>
-    </div>
+</div>
+
+
+
+<!-- Reactive form -->
+<div class="container w-50 text-center contForm">
+    <form action="" [formGroup]="empForm" (ngSubmit)="onSubmit()" id="empFormm">
+        <input type="text" class="form-control " placeholder="Please enter Employe Name" formControlName='employee_name'
+            id='employee_name'>
+        <p class="text-danger" *ngIf='employee_name.invalid && employee_name.touched' id="eNameCheck">This field is
+            required </p>
+
+        <br>
+        <br>
+        <input type="text" class="form-control " placeholder="Please enter Employe Salary"
+            formControlName='employee_salary'>
+        <small class="text-danger" *ngIf='employee_salary.invalid && employee_salary.touched'>This field is required and
+            Do not enter Alphabets or start number with 0 </small> <br>
+        
+        <br>
+        <br>
+        <input type="text" class="form-control " placeholder="Please enter Employe Age" formControlName='employee_age'
+            (focus)="onChange3(this)">
+        <small class="text-danger" *ngIf='employee_age.invalid && employee_age.touched'>Employee Age should betwee 21-60
+        </small>
+        <br>
+        <br>
+        <!-- <button routerLink='/employeeData' class="btn btn-danger btn-lg" [disabled]='!empForm.valid || empForm.untouched'>Add Details</button> -->
+
+        <button routerLink='/lazy/employeeDataLazy' class="btn btn-danger btn-lg"
+            [disabled]='!empForm.valid || empForm.untouched'>Add Details</button>
+
+
+    </form>
+</div>
