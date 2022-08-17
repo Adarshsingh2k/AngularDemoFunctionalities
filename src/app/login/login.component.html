@@ -1,0 +1,37 @@
+
+<form class="container p-5 text-center" #logIn="ngForm" (ngSubmit)="onSubmit(logIn)">
+
+    <input type="email" name="email" class="form-control w-50 ms-auto me-auto" placeholder="johnDoe@xyz.com" required ngModel email #email="ngModel" (focus)="onChange(email)">
+    <span *ngIf='email.invalid && email.touched' style="color: red;"> Please enter valid email</span>
+    <br>
+    <input type="password" name="pass" class="form-control w-50 ms-auto me-auto" placeholder="Minimum characters 8" ngModel  #pass="ngModel" required minlength="8"  (focus)="onChange2(pass)">
+    <div >
+    <span *ngIf='pass.invalid && pass.touched' style="color: red;"> Minimum length for password is 8</span>
+    </div>
+    <br>
+    <button  class=" w-25  form-control  btn btn-success " [disabled]='logIn.invalid'>LogIn</button>
+
+</form>
+<router-outlet></router-outlet>
+<!-- <div class="container p-5">
+    <form action="" #logIn="ngForm" (ngSubmit)="signIn(logIn)" >
+    
+        <input type="text" name="name"  id="fname" placeholder="Full Name*" 
+        class="form-control w-50 ms-auto me-auto"  minlength="5" required ngModel #name="ngModel"  [(ngModel)]="fname" >
+        <br>
+        <small *ngIf='name.invalid && name.touched' class="ms-auto me-auto">Min Length for Name is 5</small>
+        <small *ngIf="fname" class="ms-auto me-auto">You Entered {{fname}}</small>
+        <br>
+        <input type="password" name="password" placeholder="Password*" class="form-control w-50 ms-auto me-auto" 
+         minlength="8" required ngModel #pass="ngModel">
+        <br>
+        <small *ngIf='pass.invalid && pass.touched' class=" w-50 ms-auto me-auto">Min Length for Password is 8</small>
+        <br>
+        <input type="email" name="email" id="" placeholder="johnDoe@xhy.com*" 
+        class="form-control w-50 ms-auto me-auto" email ngModel required #email="ngModel">
+        <br>
+        <small *ngIf='email.invalid && email.touched' class=" w-50 ms-auto me-auto">Please ener a valid email</small>
+        <button class="  form-control w-25   ms-auto me-auto"  [disabled]="!logIn.valid" >SignIn</button>
+    </form>
+    
+    </div> -->

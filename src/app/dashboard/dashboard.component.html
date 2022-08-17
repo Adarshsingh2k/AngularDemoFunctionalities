@@ -1,0 +1,27 @@
+
+<div style="float: right;" class="mb-4 p-5">
+  
+    {{emailStorage}}
+    <br>
+    <!-- <button routerLink="/employeeData" class="btn btn-primary">Create</button> -->
+    <button routerLink="/lazy/employeeDataLazy" class="btn btn-primary">Create</button>
+
+    <!-- lazy -->
+</div>
+
+<div class="container text-center">
+    <div class="row  align-items-center" *ngFor='let i of outData'>
+        <div class="col w-25 p-5">
+            <div class="card " >
+                <img src="{{i.avatar}}" >
+                <div class="card-body">
+
+                <h3 class="card-text"> {{i.first_name}} {{i.last_name}}</h3>
+                <a href="{{i.email}}">{{i.email}}</a>
+                </div>
+            </div>
+           
+        </div>
+        
+    </div>
+</div>
