@@ -10,18 +10,18 @@ import { EmployeeDataComponent } from './employee-data.component';
 describe('EmployeeDataComponent', () => {
   let component: EmployeeDataComponent;
   let fixture: ComponentFixture<EmployeeDataComponent>;
-  let httpCLient:HttpClient
-  let httpTestingController:HttpTestingController
+  let httpCLient: HttpClient
+  let httpTestingController: HttpTestingController
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmployeeDataComponent ],
-      imports:[ReactiveFormsModule,FormsModule,HttpClientTestingModule],
+      declarations: [EmployeeDataComponent],
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule],
       // providers:[EmpServiceService]
     })
-    .compileComponents();
-    httpCLient=TestBed.inject(HttpClient)
-    httpTestingController=TestBed.inject(HttpTestingController)
+      .compileComponents();
+    httpCLient = TestBed.inject(HttpClient)
+    httpTestingController = TestBed.inject(HttpTestingController)
 
 
     fixture = TestBed.createComponent(EmployeeDataComponent);
@@ -34,34 +34,30 @@ describe('EmployeeDataComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  
 
-  it('test Form group element count',()=>{
-    
 
-    const formEl=fixture.debugElement.nativeElement.querySelector('form')
+  it('test Form group element count', () => {
+
+
+    const formEl = fixture.debugElement.nativeElement.querySelector('form')
     // console.log(formEl)
 
     // console.log("ff")
 
-    const inputEl=formEl.querySelectorAll('input')
+    const inputEl = formEl.querySelectorAll('input')
     // console.log(inputEl)
     // console.log(inputEl.length+'f')
 
     expect(inputEl.length).toEqual(3)
   })
 
-  // it('test for validation of employee age',()=>{
-  //   const formEl=fixture.debugElement.nativeElement.querySelector('form')
-  //   const inputEl=formEl.querySelectorAll('input')[2]
-  // })
 
   it('age field validity', () => {
     let errors = {};
-    
+
     let age = component.empForm.controls['employee_age'];
     errors = age.errors || {};
-    expect(errors).toBeTruthy(); 
+    expect(errors).toBeTruthy();
   });
 
 });
