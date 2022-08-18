@@ -20,7 +20,9 @@ export class AuthLogicService {
     else{
       this.loggedIn=false;
       console.log('fail');
+      alert('please enter correct Password')
 
+      
     }
   }
  
