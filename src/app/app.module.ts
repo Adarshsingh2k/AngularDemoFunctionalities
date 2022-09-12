@@ -16,6 +16,9 @@ import { EmpServiceService } from './services/emp-service.service';
 import { DashboardServiceService } from './services/dashboard-service.service';
 import {  HttpClientModule } from '@angular/common/http';
 
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './stateMangement/login.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,8 @@ import {  HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    
+    StoreModule.forRoot({email:loginReducer})
     
     
     // ReactiveFormsModule,

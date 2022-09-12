@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loginRequest } from 'app/stateMangement/login.actions';
+import { loginState } from 'app/stateMangement/login.state';
 import { AuthLogicService } from '../services/auth-logic.service';
 
 @Component({
@@ -9,7 +12,11 @@ import { AuthLogicService } from '../services/auth-logic.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthLogicService) { }
+  constructor(private route: ActivatedRoute, 
+    private router: Router,
+     private authService: AuthLogicService,
+     private store:Store<{email:loginState}>
+     ) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +25,7 @@ export class LoginComponent implements OnInit {
     console.log(logIn)
     console.log(logIn.value.email);
     sessionStorage.setItem('email', logIn.value.email)
+    this.store.dispatch(loginRequest({email:logIn.value.email,password:logIn.value.pass}))
     sessionStorage.setItem('password', logIn.value.pass)
 
     // this.goToDashboard

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loginState } from 'app/stateMangement/login.state';
+import { Observable } from 'rxjs';
 import { DashboardServiceService } from '../services/dashboard-service.service';
 
 @Component({
@@ -10,7 +13,9 @@ export class DashboardComponent implements OnInit {
 
   storeRec:any;
   outData:any;
-  constructor(private service:DashboardServiceService) { }
+  email$!:Observable<{email:string}>
+  constructor(private service:DashboardServiceService,
+    private store:Store<{email:loginState}>) { }
 
   ngOnInit(): void {
     this.service.getEmployeeRec().subscribe(data=>{
@@ -20,7 +25,8 @@ export class DashboardComponent implements OnInit {
     )
 
     // this.DataOut()((
-    this.setEmail()
+    // this.setEmail()
+    this.email$=this.store.select('email')
   }
 
   DataOut(data :any){
